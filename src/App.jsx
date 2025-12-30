@@ -23,7 +23,9 @@ export default function App() {
   const deleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i != index));
   };
-
+  const clearTasks = () => {
+    setTasks([]);
+  };
   return (
     <div>
       <h1>Tide Flow</h1>
@@ -31,7 +33,9 @@ export default function App() {
       <Taskform addTask={addTask} />
       <Tasklist tasks={tasks} updateTask={updateTask} deleteTask={deleteTask} />
       <Progresstracker tasks={tasks} />
-      <button>Clear all Tasks</button>
+      <button className="clear-btn" onClick={clearTasks}>
+        Clear all Tasks
+      </button>
     </div>
   );
 }
